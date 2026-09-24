@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FKP-Codes · AI tools for Asset Management</title>
+  <meta name="description" content="Financial engineer building AI tools for asset management: performance analytics, LLM-generated management commentary, fund documentation. Public data only.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="FKP-Codes · AI tools for Asset Management">
+  <meta property="og:description" content="Portfolio of finance × AI tools built on public data: live demos, architecture and code.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e1726'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' fill='none' stroke='%233987e5' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>
+    // Theme and language before first paint (avoids a flash of the wrong theme).
+    (function () {
+      var theme = null, lang = null;
+      try { theme = localStorage.getItem("theme"); lang = localStorage.getItem("lang"); } catch (e) {}
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+      if (!lang) lang = (navigator.language || "en").toLowerCase().indexOf("fr") === 0 ? "fr" : "en";
+      document.documentElement.setAttribute("lang", lang);
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="FKP-Codes, home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M7 22l6-7 5 4 7-9"/></svg>
+        <span class="brand-name">FKP-Codes</span>
+      </a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#approach" data-i18n="nav.approach">Approach</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#about" data-i18n="nav.about">About</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn lang-btn" id="lang-toggle" type="button" aria-label="Switch language">FR</button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>
+        </button>
+        <a class="btn btn-ghost btn-sm gh-link" href="https://github.com/FKP-Codes" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================================================================ HERO -->
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Open to finance × AI roles</span></p>
+          <h1 data-i18n-html="hero.title">Financial engineer building <em>AI tools</em> for asset management.</h1>
+          <p class="lead" data-i18n="hero.lead">Three years in asset management, now turning financial data and regulatory documents into decisions and client-ready content — with the controls finance requires: traceable figures, human review and cost discipline.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects" data-i18n="hero.cta1">Explore the projects</a>
+            <a class="btn btn-ghost" href="https://ai-portfolio-commentary.streamlit.app" target="_blank" rel="noopener"><span data-i18n="hero.cta2">Open the live app</span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <dl class="hero-stats">
+          <div class="stat"><dt data-i18n="stat.years.l">Years in asset management</dt><dd>3</dd></div>
+          <div class="stat"><dt data-i18n="stat.tools.l">Tools · live / in progress</dt><dd>1<span class="dim"> / 2</span></dd></div>
+          <div class="stat"><dt data-i18n="stat.data.l">Public data only</dt><dd>100<span class="dim">%</span></dd></div>
+          <div class="stat"><dt data-i18n="stat.ci.l">Tested &amp; linted on every push</dt><dd>CI</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================================================================ PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-i18n="projects.kicker">Project workbench</p>
+          <h2 data-i18n="projects.title">Pick a tool, see it run</h2>
+          <p class="section-lead" data-i18n="projects.lead">Each project comes with its business case, a live render, its architecture and its engineering standards.</p>
+        </header>
+
+        <div class="workbench">
+          <nav class="project-menu" aria-label="Projects" id="project-menu"></nav>
+          <article class="project-panel" id="project-panel" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ APPROACH -->
+    <section class="section section-alt" id="approach">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-i18n="approach.kicker">How I build</p>
+          <h2 data-i18n="approach.title">LLMs in finance, with guardrails</h2>
+        </header>
+        <div class="principles">
+          <div class="principle">
+            <span class="principle-num">01</span>
+            <h3 data-i18n="p1.t">Figures are computed, never generated</h3>
+            <p data-i18n="p1.d">Numbers come from tested Python code. The model only receives a JSON payload of computed metrics and is instructed not to add any figure or event.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-num">02</span>
+            <h3 data-i18n="p2.t">Human in the loop</h3>
+            <p data-i18n="p2.d">The tool writes a first draft; the portfolio manager adds market context and signs off. The payload sent to the model is shown for audit.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-num">03</span>
+            <h3 data-i18n="p3.t">Cost discipline</h3>
+            <p data-i18n="p3.d">Right-sized models (Claude Haiku 4.5), per-session generation caps on public demos and a monthly spend limit on the API key.</p>
+          </div>
+          <div class="principle">
+            <span class="principle-num">04</span>
+            <h3 data-i18n="p4.t">Public data, reproducible</h3>
+            <p data-i18n="p4.d">Only public sources: Yahoo Finance, public RSS feeds, published regulatory documents. No confidential or proprietary data, ever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-head">
+          <p class="kicker" data-i18n="skills.kicker">Toolkit</p>
+          <h2 data-i18n="skills.title">Where finance meets engineering</h2>
+        </header>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3 data-i18n="skills.fin">Finance</h3>
+            <ul class="tags" data-i18n-list="skills.fin.list">
+              <li>Portfolio analytics</li><li>Risk metrics (volatility, drawdown, Sharpe, tracking error)</li><li>Performance attribution</li><li>PRIIPs KID · UCITS KIID · prospectus</li><li>Client reporting</li><li>Multi-asset portfolios</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.ai">AI / LLM</h3>
+            <ul class="tags" data-i18n-list="skills.ai.list">
+              <li>Claude API</li><li>Prompt engineering</li><li>Structured outputs</li><li>RAG</li><li>Document extraction</li><li>LLM evaluation</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.eng">Engineering</h3>
+            <ul class="tags">
+              <li>Python</li><li>pandas · NumPy</li><li>Streamlit</li><li>Plotly</li><li>pytest · ruff</li><li>GitHub Actions</li><li>n8n</li><li>Power Apps</li><li>VBA</li><li>Git</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ ABOUT -->
+    <section class="section section-alt" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="kicker" data-i18n="about.kicker">About</p>
+          <h2 data-i18n="about.title">From the reporting desk to production AI</h2>
+          <p data-i18n="about.p1">I spent three years in asset management working on multi-asset portfolios, performance and risk analytics, client reporting and fund documentation. I have already shipped Claude-based prototypes internally, with Power Apps front-ends and n8n automations.</p>
+          <p data-i18n="about.p2">I am now looking for roles at the intersection of finance and AI: applied AI, quant tooling, or AI products for asset managers.</p>
+        </div>
+        <ul class="about-list">
+          <li><span class="about-k" data-i18n="about.k1">Domain</span><span data-i18n="about.v1">Multi-asset portfolios, performance &amp; risk, client reporting, PRIIPs / UCITS documentation</span></li>
+          <li><span class="about-k" data-i18n="about.k2">AI in production</span><span data-i18n="about.v2">Claude API prototypes, Power Apps front-ends, n8n automations</span></li>
+          <li><span class="about-k" data-i18n="about.k3">Looking for</span><span data-i18n="about.v3">Applied AI · quant tooling · AI product for asset management</span></li>
+          <li><span class="about-k" data-i18n="about.k4">Languages</span><span data-i18n="about.v4">French (native) · English (professional)</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer.data">All projects use public data only. Fictitious portfolios; nothing here is investment advice.</p>
+      <p><a href="https://github.com/FKP-Codes" target="_blank" rel="noopener">github.com/FKP-Codes</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/commentary-demo.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
