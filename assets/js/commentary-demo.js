@@ -76,6 +76,7 @@
     errRate: { en: "Demo limit reached for now (a few generations per hour per visitor). Please try again later.", fr: "Limite de la démo atteinte pour le moment (quelques générations par heure et par visiteur). Réessayez plus tard." },
     errDaily: { en: "The demo’s daily budget is used up. Please come back tomorrow.", fr: "Le budget quotidien de la démo est épuisé. Revenez demain." },
     errGeneric: { en: "The commentary service is unavailable right now. Please try again in a moment.", fr: "Le service de commentaire est indisponible pour le moment. Réessayez dans un instant." },
+    errNetwork: { en: "service unreachable: network or CORS", fr: "service injoignable : réseau ou CORS" },
     notConfigured: { en: "Live generation is being set up. Meanwhile, the commentary can be generated in the Streamlit app.", fr: "La génération en direct est en cours de mise en place. En attendant, le commentaire peut être généré dans l’app Streamlit." },
     disclaimer: { en: "AI-generated draft for a fictitious portfolio · to be reviewed by a manager · not investment advice.", fr: "Premier jet généré par IA pour un portefeuille fictif · à relire par un gérant · pas un conseil en investissement." }
   };
@@ -723,7 +724,9 @@
       }).then(function (res) {
         if (!res.ok) {
           return res.json().catch(function () { return {}; }).then(function (b) {
-            var e = new Error(b.error || String(res.status)); e.code = b.error || res.status; throw e;
+            var e = new Error(b.error || String(res.status)); e.code = b.error || res.status;
+            e.detail = "HTTP " + res.status + (b.error ? " · " + b.error : "") + (b.status ? " · Anthropic " + b.status : "") + (b.detail ? " · " + b.detail : "");
+            throw e;
           });
         }
         var left = res.headers.get("X-Remaining");
@@ -744,7 +747,10 @@
       }).catch(function (e) {
         if (e.name === "AbortError") return;
         var code = e.code;
-        setStatus(t(code === "rate_limited" ? L.errRate : code === "daily_limit" ? L.errDaily : L.errGeneric), true);
+        var msg = t(code === "rate_limited" ? L.errRate : code === "daily_limit" ? L.errDaily : L.errGeneric);
+        // Technical cause, shown to help diagnose deployment issues (no secret involved).
+        var detail = e.detail || (e instanceof TypeError ? t(L.errNetwork) : "");
+        setStatus(msg + (detail && code !== "rate_limited" && code !== "daily_limit" ? " (" + detail + ")" : ""), true);
       }).then(function () {
         ai.busy = false; ai.controller = null;
         renderAi();
