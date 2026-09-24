@@ -725,7 +725,7 @@
         if (!res.ok) {
           return res.json().catch(function () { return {}; }).then(function (b) {
             var e = new Error(b.error || String(res.status)); e.code = b.error || res.status;
-            e.detail = "HTTP " + res.status + (b.error ? " · " + b.error : "") + (b.status ? " · Anthropic " + b.status : "") + (b.detail ? " · " + b.detail : "");
+            e.detail = "HTTP " + res.status + (b.error ? " · " + b.error : "") + (b.status ? " · Anthropic " + b.status : "") + (b.detail ? " · " + b.detail : "") + (b.message ? " — " + b.message : "");
             throw e;
           });
         }
