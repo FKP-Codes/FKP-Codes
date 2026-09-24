@@ -54,7 +54,30 @@
     },
     loading: { en: "Loading public market data…", fr: "Chargement des données de marché publiques…" },
     loadErr: { en: "The data snapshot could not be loaded.", fr: "Le snapshot de données n’a pas pu être chargé." },
-    ddAxis: { en: "Drawdown", fr: "Drawdown" }
+    ddAxis: { en: "Drawdown", fr: "Drawdown" },
+    ai: { en: "AI management commentary", fr: "Commentaire de gestion IA" },
+    aiSub: { en: "Claude Haiku 4.5 · written from the figures above only", fr: "Claude Haiku 4.5 · rédigé à partir des seuls chiffres ci-dessus" },
+    audience: { en: "Audience", fr: "Public cible" },
+    institutional: { en: "Institutional", fr: "Institutionnels" },
+    private: { en: "Private clients", fr: "Clientèle privée" },
+    length: { en: "Length", fr: "Longueur" },
+    short: { en: "Short", fr: "Court" }, standard: { en: "Standard", fr: "Standard" }, detailed: { en: "Detailed", fr: "Détaillé" },
+    notes: { en: "Manager’s market context (optional)", fr: "Contexte de marché du gérant (optionnel)" },
+    notesPh: { en: "e.g. ECB rate cut in June, rotation towards cyclicals, profit-taking on US equities at period end…", fr: "Ex. : baisse des taux de la BCE en juin, rotation vers les valeurs cycliques, prises de profits sur les actions US en fin de période…" },
+    notesHelp: { en: "The model invents no event: anything macro it mentions must come from here.", fr: "Le modèle n’invente aucun événement : tout élément macro cité doit venir d’ici." },
+    generate: { en: "Generate the commentary", fr: "Générer le commentaire" },
+    regenerate: { en: "Regenerate", fr: "Régénérer" },
+    generating: { en: "Writing…", fr: "Rédaction…" },
+    stop: { en: "Stop", fr: "Arrêter" },
+    download: { en: "Download .md", fr: "Télécharger .md" },
+    placeholder: { en: "Set the scenario above, then generate: the commentary is written live from the current figures.", fr: "Réglez le scénario ci-dessus puis générez : le commentaire est rédigé en direct à partir des chiffres affichés." },
+    stale: { en: "The figures changed since this commentary was written — regenerate to update it.", fr: "Les chiffres ont changé depuis la rédaction de ce commentaire — régénérez pour le mettre à jour." },
+    remaining: { en: "generation(s) left this hour", fr: "génération(s) restante(s) cette heure-ci" },
+    errRate: { en: "Demo limit reached for now (a few generations per hour per visitor). Please try again later.", fr: "Limite de la démo atteinte pour le moment (quelques générations par heure et par visiteur). Réessayez plus tard." },
+    errDaily: { en: "The demo’s daily budget is used up. Please come back tomorrow.", fr: "Le budget quotidien de la démo est épuisé. Revenez demain." },
+    errGeneric: { en: "The commentary service is unavailable right now. Please try again in a moment.", fr: "Le service de commentaire est indisponible pour le moment. Réessayez dans un instant." },
+    notConfigured: { en: "Live generation is being set up. Meanwhile, the commentary can be generated in the Streamlit app.", fr: "La génération en direct est en cours de mise en place. En attendant, le commentaire peut être généré dans l’app Streamlit." },
+    disclaimer: { en: "AI-generated draft for a fictitious portfolio · to be reviewed by a manager · not investment advice.", fr: "Premier jet généré par IA pour un portefeuille fictif · à relire par un gérant · pas un conseil en investissement." }
   };
 
   function t(v) { return window.I18N ? window.I18N.t(v) : v.en; }
@@ -456,6 +479,8 @@
       card.appendChild(el("p", { class: "chart-foot" }, esc(t(L.source))));
       wrap.appendChild(card);
 
+      wrap.appendChild(buildAi());
+
       // table + payload
       var split = el("div", { class: "demo-split" });
       var tb = el("div");
@@ -517,6 +542,7 @@
       refs.table.innerHTML = '<table class="data-table"><thead><tr>' + th + "</tr></thead><tbody>" + rows + "</tbody></table>";
 
       refs.lastPayload = payload(r);
+      markStale();
       refs.payload.innerHTML = highlightJson(refs.lastPayload);
       drawChart();
     }
@@ -573,6 +599,158 @@
       refs.legend.style.display = legendItems.length ? "" : "none";
     }
 
+
+    /* ---------------------------------------------------------------- AI commentary */
+    var ai = { audience: "institutional", length: "standard", notes: "", text: "", payloadKey: null, controller: null, busy: false };
+
+    function seg(label, options, key) {
+      var box = el("div");
+      box.appendChild(el("span", { class: "ctrl-label" }, esc(t(label))));
+      var g = el("div", { class: "seg", role: "group", "aria-label": t(label) });
+      options.forEach(function (o) {
+        var b = el("button", { type: "button", "aria-pressed": String(ai[key] === o) }, esc(t(L[o])));
+        b.addEventListener("click", function () { ai[key] = o; g.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); }); });
+        g.appendChild(b);
+      });
+      box.appendChild(g);
+      return box;
+    }
+
+    function buildAi() {
+      var card = el("section", { class: "ai-card", "aria-labelledby": "ai-title" });
+      var head = el("div", { class: "ai-head" });
+      head.appendChild(el("div", null, '<h4 id="ai-title">' + esc(t(L.ai)) + '</h4><p class="ai-sub">' + esc(t(L.aiSub)) + "</p>"));
+      card.appendChild(head);
+
+      var form = el("div", { class: "ai-form" });
+      form.appendChild(seg(L.audience, ["institutional", "private"], "audience"));
+      form.appendChild(seg(L.length, ["short", "standard", "detailed"], "length"));
+      var nb = el("div", { class: "ai-notes" });
+      nb.appendChild(el("label", { class: "ctrl-label", for: "ai-notes" }, esc(t(L.notes))));
+      var ta = el("textarea", { id: "ai-notes", rows: "2", maxlength: "800", placeholder: t(L.notesPh) });
+      ta.value = ai.notes;
+      ta.addEventListener("input", function () { ai.notes = ta.value; });
+      nb.appendChild(ta);
+      nb.appendChild(el("p", { class: "ctrl-note" }, esc(t(L.notesHelp))));
+      form.appendChild(nb);
+      card.appendChild(form);
+
+      var actions = el("div", { class: "ai-actions" });
+      refs.genBtn = el("button", { type: "button", class: "btn btn-accent" });
+      refs.genBtn.addEventListener("click", function () { ai.busy ? stopAi() : generate(); });
+      actions.appendChild(refs.genBtn);
+      refs.aiStatus = el("span", { class: "ai-status", role: "status" });
+      actions.appendChild(refs.aiStatus);
+      card.appendChild(actions);
+
+      refs.staleNote = el("div", { class: "callout wip ai-stale", hidden: "" }, esc(t(L.stale)));
+      card.appendChild(refs.staleNote);
+      refs.aiOut = el("div", { class: "ai-output", "aria-live": "polite" });
+      card.appendChild(refs.aiOut);
+
+      var tools = el("div", { class: "ai-tools", hidden: "" });
+      var cp = el("button", { type: "button", class: "copy-btn" }, esc(t(L.copy)));
+      cp.addEventListener("click", function () {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(ai.text).then(function () { cp.textContent = t(L.copied); setTimeout(function () { cp.textContent = t(L.copy); }, 1500); }).catch(function () {});
+      });
+      var dl = el("button", { type: "button", class: "copy-btn" }, esc(t(L.download)));
+      dl.addEventListener("click", function () {
+        var md = "# " + t(L.ai) + " — " + refs.periodLabel.textContent + "\n\n" + ai.text + "\n\n_" + t(L.disclaimer) + "_\n";
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([md], { type: "text/markdown" }));
+        a.download = "commentary_" + iso(state.result.dates[state.result.dates.length - 1]).replace(/-/g, "") + ".md";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+      });
+      tools.appendChild(cp); tools.appendChild(dl);
+      tools.appendChild(el("span", { class: "ctrl-note" }, esc(t(L.disclaimer))));
+      refs.aiTools = tools;
+      card.appendChild(tools);
+
+      renderAi();
+      return card;
+    }
+
+    function renderMarkdown(md) {
+      return md.trim().split(/\n{2,}/).map(function (block) {
+        var html = esc(block).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\n/g, "<br>");
+        return "<p>" + html + "</p>";
+      }).join("");
+    }
+
+    function renderAi() {
+      if (!refs.genBtn) return;
+      refs.genBtn.textContent = ai.busy ? t(L.stop) : ai.text ? t(L.regenerate) : t(L.generate);
+      refs.genBtn.disabled = !opts.proxyUrl;
+      if (!opts.proxyUrl) {
+        refs.aiOut.innerHTML = '<p class="ai-placeholder">' + esc(t(L.notConfigured)) + "</p>" +
+          (opts.appUrl ? '<p><a class="btn btn-ghost btn-sm" href="' + opts.appUrl + '" target="_blank" rel="noopener">Streamlit <span aria-hidden="true">↗</span></a></p>' : "");
+        return;
+      }
+      refs.aiOut.innerHTML = ai.text
+        ? renderMarkdown(ai.text) + (ai.busy ? '<span class="caret" aria-hidden="true"></span>' : "")
+        : '<p class="ai-placeholder">' + esc(ai.busy ? t(L.generating) : t(L.placeholder)) + "</p>";
+      refs.aiOut.classList.toggle("busy", ai.busy);
+      if (ai.busy || !ai.text) refs.aiTools.setAttribute("hidden", ""); else refs.aiTools.removeAttribute("hidden");
+      markStale();
+    }
+
+    function markStale() {
+      if (!refs.staleNote) return;
+      var stale = ai.text && !ai.busy && ai.payloadKey !== JSON.stringify(refs.lastPayload);
+      if (stale) refs.staleNote.removeAttribute("hidden"); else refs.staleNote.setAttribute("hidden", "");
+    }
+
+    function setStatus(msg, isError) {
+      refs.aiStatus.textContent = msg || "";
+      refs.aiStatus.classList.toggle("error", !!isError);
+    }
+
+    function stopAi() { if (ai.controller) ai.controller.abort(); }
+
+    function generate() {
+      if (!opts.proxyUrl || ai.busy) return;
+      ai.busy = true; ai.text = ""; ai.payloadKey = JSON.stringify(refs.lastPayload);
+      ai.controller = new AbortController();
+      setStatus("");
+      renderAi();
+      fetch(opts.proxyUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ payload: refs.lastPayload, audience: ai.audience, length: ai.length, lang: lang(), notes: ai.notes }),
+        signal: ai.controller.signal
+      }).then(function (res) {
+        if (!res.ok) {
+          return res.json().catch(function () { return {}; }).then(function (b) {
+            var e = new Error(b.error || String(res.status)); e.code = b.error || res.status; throw e;
+          });
+        }
+        var left = res.headers.get("X-Remaining");
+        var reader = res.body.getReader(), dec = new TextDecoder(), last = 0;
+        function pump() {
+          return reader.read().then(function (r) {
+            if (r.done) {
+              if (left != null) setStatus(left + " " + t(L.remaining));
+              return;
+            }
+            ai.text += dec.decode(r.value, { stream: true });
+            var now = Date.now();
+            if (now - last > 60) { last = now; renderAi(); }
+            return pump();
+          });
+        }
+        return pump();
+      }).catch(function (e) {
+        if (e.name === "AbortError") return;
+        var code = e.code;
+        setStatus(t(code === "rate_limited" ? L.errRate : code === "daily_limit" ? L.errDaily : L.errGeneric), true);
+      }).then(function () {
+        ai.busy = false; ai.controller = null;
+        renderAi();
+      });
+    }
+
     var rt;
     function onResize() { clearTimeout(rt); rt = setTimeout(function () { if (state.result && root.isConnected) drawChart(); }, 120); }
     window.addEventListener("resize", onResize);
@@ -582,6 +760,7 @@
     document.addEventListener("themechange", onScheme);
     return {
       destroy: function () {
+        stopAi();
         window.removeEventListener("resize", onResize);
         document.removeEventListener("themechange", onScheme);
         if (mq.removeEventListener) mq.removeEventListener("change", onScheme);
@@ -589,5 +768,5 @@
     };
   }
 
-  window.CommentaryDemo = { mount: mount, _compute: compute, _load: loadData };
+  window.CommentaryDemo = { mount: mount, _compute: compute, _load: loadData, _payload: payload };
 })();

@@ -6,6 +6,8 @@
 
   var APP_URL = "https://ai-portfolio-commentary.streamlit.app";
   var REPO_URL = "https://github.com/FKP-Codes/Financial_Commentary";
+  // Cloudflare Worker that holds the API key (source: Financial_Commentary/proxy/worker.js). Empty = not deployed yet.
+  var COMMENTARY_PROXY_URL = "";
 
   var TAB_LABELS = {
     overview: { en: "Overview", fr: "Présentation" },
@@ -31,13 +33,8 @@
     method: { en: "Methodology", fr: "Méthodologie" },
     shot: { en: "The deployed Streamlit app (1-year view).", fr: "L’app Streamlit déployée (vue 1 an)." },
     demoNote: {
-      en: "This replay recomputes, in your browser, every figure the model receives — same public data, same methodology as the app. The commentary itself is generated in the live app, where the API key stays server-side.",
-      fr: "Cette démo recalcule dans votre navigateur tous les chiffres transmis au modèle — mêmes données publiques, même méthodologie que l’app. Le commentaire lui-même est généré dans l’app en ligne, où la clé API reste côté serveur."
-    },
-    genTitle: { en: "Generate the commentary", fr: "Générer le commentaire" },
-    genBody: {
-      en: "In the app, pick the audience (institutional or private clients) and the length, optionally add the manager’s market context, and Claude streams a four-part commentary: market environment, portfolio performance, contribution analysis, positioning and outlook.",
-      fr: "Dans l’app, choisissez le public (institutionnels ou clientèle privée) et la longueur, ajoutez si besoin le contexte de marché du gérant : Claude rédige en streaming un commentaire en quatre parties — environnement de marché, performance, analyse des contributions, positionnement et perspectives."
+      en: "Change the period or the allocation: every figure is recomputed in your browser (same public data and methodology as the app), then Claude writes the management commentary from those figures only. The API key stays server-side.",
+      fr: "Changez la période ou l’allocation : tous les chiffres sont recalculés dans votre navigateur (mêmes données publiques et même méthodologie que l’app), puis Claude rédige le commentaire de gestion à partir de ces seuls chiffres. La clé API reste côté serveur."
     },
     wipNote: {
       en: "This project is under construction. The contract below is the specification the tool is being built against — it is not a produced result.",
@@ -100,9 +97,8 @@
           '<div class="stack-v">' +
             '<div class="callout"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.5"/></svg><span>' + t(UI.demoNote) + "</span></div>" +
             '<div id="demo-root"></div>' +
-            '<div class="commentary-mock"><h5>' + t(UI.genTitle) + "</h5><p>" + t(UI.genBody) + '</p><a class="btn btn-accent btn-sm" href="' + APP_URL + '" target="_blank" rel="noopener">' + t(UI.openApp) + ' <span aria-hidden="true">↗</span></a></div>' +
           "</div>";
-        return window.CommentaryDemo.mount(body.querySelector("#demo-root"), { dataUrl: "assets/data/sample_prices.csv" });
+        return window.CommentaryDemo.mount(body.querySelector("#demo-root"), { dataUrl: "assets/data/sample_prices.csv", proxyUrl: COMMENTARY_PROXY_URL, appUrl: APP_URL });
       },
       architecture: function () {
         return '<div class="stack-v">' +
