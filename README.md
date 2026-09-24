@@ -1,11 +1,5 @@
-<h1 align="center">Hi, I'm VOTRE PRÉNOM 👋</h1>
+<h1 align="center">Hi there 👋</h1>
 <h3 align="center">Financial Engineer | Building AI tools for Asset Management</h3>
-
-<p align="center">
-  <a href="https://linkedin.com/in/VOTRE-PROFIL"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-  <a href="mailto:VOTRE-EMAIL"><img src="https://img.shields.io/badge/Email-333333?logo=gmail&logoColor=white" alt="Email"></a>
-  <img src="https://img.shields.io/badge/Paris-France-1f4e79" alt="Location">
-</p>
 
 ---
 
