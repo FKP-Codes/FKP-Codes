@@ -7,7 +7,7 @@
   var APP_URL = "https://ai-portfolio-commentary.streamlit.app";
   var REPO_URL = "https://github.com/FKP-Codes/Financial_Commentary";
   // Cloudflare Worker that holds the API key (source: Financial_Commentary/proxy/worker.js). Empty = not deployed yet.
-  var COMMENTARY_PROXY_URL = "";
+  var COMMENTARY_PROXY_URL = "https://financial-commentary.fkp-codes.workers.dev/";
 
   var TAB_LABELS = {
     overview: { en: "Overview", fr: "Présentation" },
