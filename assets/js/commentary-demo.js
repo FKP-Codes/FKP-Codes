@@ -30,7 +30,6 @@
       { en: "Sharpe ratio", fr: "Ratio de Sharpe" },
       { en: "Tracking error", fr: "Tracking error" }
     ],
-    vsBench: { en: "vs bench", fr: "vs bench" },
     deltaNote: { en: "▲▼ Difference vs the strategic allocation (green = better, red = worse).", fr: "▲▼ Écart vs l’allocation stratégique (vert = mieux, rouge = moins bien)." },
     pts: { en: "pts", fr: "pts" },
     base100: { en: "Base 100", fr: "Base 100" },
@@ -725,7 +724,7 @@
         if (!res.ok) {
           return res.json().catch(function () { return {}; }).then(function (b) {
             var e = new Error(b.error || String(res.status)); e.code = b.error || res.status;
-            e.detail = "HTTP " + res.status + (b.error ? " · " + b.error : "") + (b.status ? " · Anthropic " + b.status : "") + (b.detail ? " · " + b.detail : "") + (b.message ? " — " + b.message : "");
+            e.detail = "HTTP " + res.status + (b.error ? " · " + b.error : "") + (b.status ? " · Anthropic " + b.status : "") + (b.detail ? " · " + b.detail : "");
             throw e;
           });
         }
@@ -775,5 +774,5 @@
     };
   }
 
-  window.CommentaryDemo = { mount: mount, _compute: compute, _load: loadData, _payload: payload };
+  window.CommentaryDemo = { mount: mount };
 })();
