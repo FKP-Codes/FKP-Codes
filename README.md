@@ -22,7 +22,7 @@ traceable figures, human-in-the-loop review, and cost discipline.
 
 | Project | What it does | Stack | Demo |
 |---|---|---|---|
-| **[📈 AI Portfolio Commentary](https://github.com/FKP-Codes/portfolio-commentary-generator)** | Performance & risk dashboard for a multi-asset ETF portfolio, with one-click generation of a client-ready management commentary grounded only in computed figures | Python · Streamlit · yfinance · Claude API | 🚧 Deploying |
+| **[📈 AI Portfolio Commentary](https://github.com/FKP-Codes/Financial_Commentary)** | Performance & risk dashboard for a multi-asset ETF portfolio, with one-click generation of a client-ready management commentary grounded only in computed figures | Python · Streamlit · yfinance · Claude API | 🚧 Deploying |
 | **📰 Automated Market Intelligence** | Daily n8n workflow aggregating public financial RSS feeds into an LLM-structured digest (macro, equities, rates, ESG) | n8n · LLM · RSS | 🚧 In progress |
 | **🔎 Fund Due Diligence Assistant** | Upload a public KID / annual report PDF → structured fund factsheet (objective, SRI, fees, performance, benchmark) and a document readability score | Python · Streamlit · PDF parsing · Claude API | 🚧 In progress |
 
