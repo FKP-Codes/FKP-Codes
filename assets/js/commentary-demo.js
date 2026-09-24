@@ -746,6 +746,7 @@
         return pump();
       }).catch(function (e) {
         if (e.name === "AbortError") return;
+        if (window.console) console.error("[commentary]", e.detail || e);
         var code = e.code;
         var msg = t(code === "rate_limited" ? L.errRate : code === "daily_limit" ? L.errDaily : L.errGeneric);
         // Technical cause, shown to help diagnose deployment issues (no secret involved).
