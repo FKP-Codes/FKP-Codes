@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260925-1">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260925-2">
   <script>
     // Theme and language before first paint (avoids a flash of the wrong theme).
     (function () {
@@ -71,7 +71,7 @@
           <div class="stat"><dt data-i18n="stat.years.l">Years in institutional investment consulting</dt><dd>3</dd></div>
           <div class="stat"><dt data-i18n="stat.tools.l">Tools · live / in progress</dt><dd>1<span class="dim"> / 2</span></dd></div>
           <div class="stat"><dt data-i18n="stat.data.l">Public data only</dt><dd>100<span class="dim">%</span></dd></div>
-          <div class="stat"><dt data-i18n="stat.ci.l">Tested &amp; linted on every push</dt><dd>CI</dd></div>
+          <div class="stat"><dt data-i18n="stat.aum.l">Multi-asset assets monitored · 100+ clients</dt><dd data-i18n="stat.aum.v">€5.5bn</dd></div>
         </dl>
       </div>
     </section>
@@ -133,21 +133,21 @@
         </header>
         <div class="skills-grid">
           <div class="skill-card">
-            <h3 data-i18n="skills.fin">Finance</h3>
-            <ul class="tags" data-i18n-list="skills.fin.list">
-              <li>Portfolio analytics</li><li>Risk metrics (volatility, drawdown, Sharpe, tracking error)</li><li>Performance attribution</li><li>PRIIPs KID · UCITS KIID · prospectus</li><li>Client reporting</li><li>Multi-asset portfolios</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3 data-i18n="skills.ai">AI / LLM</h3>
-            <ul class="tags" data-i18n-list="skills.ai.list">
-              <li>Claude API</li><li>Prompt engineering</li><li>Structured outputs</li><li>RAG</li><li>Document extraction</li><li>LLM evaluation</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h3 data-i18n="skills.eng">Engineering</h3>
+            <h3 data-i18n="skills.lang">Languages &amp; programming</h3>
             <ul class="tags">
-              <li>Python</li><li>pandas · NumPy</li><li>Streamlit</li><li>Plotly</li><li>pytest · ruff</li><li>GitHub Actions</li><li>n8n</li><li>Power Apps</li><li>VBA</li><li>Git</li>
+              <li>Python</li><li>VBA</li><li>C#</li><li>C++</li><li>R</li><li>MATLAB</li><li>JavaScript</li><li>MySQL</li><li>Excel</li><li>Arduino</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.data">Finance &amp; data tools</h3>
+            <ul class="tags">
+              <li>Bloomberg</li><li>MSCI</li><li>Morningstar</li><li>JUMP</li><li>Power BI</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3 data-i18n="skills.ai">AI &amp; automation</h3>
+            <ul class="tags">
+              <li>Claude</li><li>ChatGPT</li><li>Copilot</li><li>n8n</li><li>GitHub</li><li>Supabase</li>
             </ul>
           </div>
         </div>
@@ -160,12 +160,19 @@
         <div>
           <p class="kicker" data-i18n="about.kicker">About</p>
           <h2 data-i18n="about.title">From investment consulting to production AI</h2>
-          <p data-i18n="about.p1">I have spent three years in institutional investment consulting, working for institutional investors on multi-asset portfolios, performance and risk analysis, fund documentation and client reporting. I have already shipped Claude-based prototypes internally, with Power Apps front-ends and n8n automations.</p>
+          <p data-i18n="about.p1">Three years in institutional investment consulting, where I combined client work with building the tools behind it.</p>
+          <h3 class="role-title" data-i18n="role.title">Latest role · Institutional investment consulting</h3>
+          <ul class="checklist role-list">
+            <li><span data-i18n-html="role.b1"><b>Portfolio monitoring &amp; reporting</b> for multi-asset portfolios: 100+ clients, €5.5bn in assets.</span></li>
+            <li><span data-i18n-html="role.b2"><b>Automation</b> of financial data extraction, processing and visualisation (Python, VBA, JUMP), and <b>prototyping of applied AI tools</b> (Claude API, MS Power Apps, n8n).</span></li>
+            <li><span data-i18n-html="role.b3"><b>Development</b> of a client reporting website and internal tools (billing, compliance).</span></li>
+            <li><span data-i18n-html="role.b4"><b>Client relationship</b> management, recurring and ad hoc.</span></li>
+          </ul>
           <p data-i18n="about.p2">I am now looking for roles at the intersection of finance and AI: applied AI, quant tooling, or AI products for investment management.</p>
         </div>
         <ul class="about-list">
-          <li><span class="about-k" data-i18n="about.k1">Domain</span><span data-i18n="about.v1">Institutional investment consulting: multi-asset portfolios, performance &amp; risk, fund documentation (PRIIPs / UCITS), client reporting</span></li>
-          <li><span class="about-k" data-i18n="about.k2">AI in production</span><span data-i18n="about.v2">Claude API prototypes, Power Apps front-ends, n8n automations</span></li>
+          <li><span class="about-k" data-i18n="about.k1">Domain</span><span data-i18n="about.v1">Institutional investment consulting: multi-asset portfolio monitoring and client reporting</span></li>
+          <li><span class="about-k" data-i18n="about.k2">AI in production</span><span data-i18n="about.v2">Claude API, MS Power Apps and n8n prototypes; Python / VBA / JUMP data automation</span></li>
           <li><span class="about-k" data-i18n="about.k3">Looking for</span><span data-i18n="about.v3">Applied AI · quant tooling · AI products for investment management</span></li>
           <li><span class="about-k" data-i18n="about.k4">Languages</span><span data-i18n="about.v4">French (native) · English (professional)</span></li>
         </ul>
@@ -180,8 +187,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/i18n.js?v=20260925-1"></script>
-  <script src="assets/js/commentary-demo.js?v=20260925-1"></script>
-  <script src="assets/js/site.js?v=20260925-1"></script>
+  <script src="assets/js/i18n.js?v=20260925-2"></script>
+  <script src="assets/js/commentary-demo.js?v=20260925-2"></script>
+  <script src="assets/js/site.js?v=20260925-2"></script>
 </body>
 </html>

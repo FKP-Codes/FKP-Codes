@@ -10,8 +10,9 @@ documents into decisions and client-ready content. My focus: putting **LLMs into
 (reporting, fund due diligence, market monitoring) with the controls that finance requires —
 traceable figures, human-in-the-loop review, and cost discipline.
 
-- 🏦 **Domain** — institutional investment consulting: multi-asset portfolios, performance & risk analytics, client reporting, PRIIPs KID / UCITS documentation
-- 🤖 **AI in production** — Claude API prototypes deployed internally, PowerApps front-ends, n8n automations
+- 🏦 **Latest role** — institutional investment consulting: monitoring and reporting of multi-asset portfolios (100+ clients, €5.5bn in assets), client relationship management
+- ⚙️ **Built on the job** — automated extraction, processing and visualisation of financial data (Python, VBA, JUMP), a client reporting website and internal tools (billing, compliance)
+- 🤖 **Applied AI** — prototypes on the Claude API, MS Power Apps and n8n
 - 🎯 **Looking for** — roles at the intersection of finance and AI (applied AI, quant tooling, AI products for investment management)
 
 ## 🚀 Featured projects
@@ -26,18 +27,11 @@ traceable figures, human-in-the-loop review, and cost discipline.
 
 ## 🛠 Skills
 
-**Finance** &nbsp; Portfolio analytics · Risk metrics (volatility, drawdown, Sharpe, tracking error) · Performance attribution · Fund documentation (PRIIPs KID, UCITS KIID, prospectus) · Client reporting
+**Languages & programming** &nbsp; Python · VBA · C# · C++ · R · MATLAB · JavaScript · MySQL · Excel · Arduino
 
-**AI / LLM** &nbsp; Claude API · Prompt engineering · Structured outputs · RAG · Document extraction · LLM evaluation
+**Finance & data tools** &nbsp; Bloomberg · MSCI · Morningstar · JUMP · Power BI
 
-**Engineering** &nbsp;
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
-![n8n](https://img.shields.io/badge/n8n-EA4B71?logo=n8n&logoColor=white)
-![VBA](https://img.shields.io/badge/VBA-217346?logo=microsoftexcel&logoColor=white)
-![Power Apps](https://img.shields.io/badge/Power%20Apps-742774?logo=powerapps&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
+**AI & automation** &nbsp; Claude · ChatGPT · Copilot · n8n · GitHub · Supabase
 
 ## 🌐 Languages
 
