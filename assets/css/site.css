@@ -160,8 +160,6 @@ code, pre, .mono { font-family: var(--mono); }
   :root:not([data-theme="light"]) .i-sun { display: none; }
   :root:not([data-theme="light"]) .i-moon { display: block; }
 }
-.gh-link svg { width: 16px; height: 16px; fill: currentColor; }
-@media (max-width: 480px) { .gh-link span { display: none; } .gh-link { padding: 0 10px; } }
 
 /* ==========================================================================
    Buttons, chips, badges

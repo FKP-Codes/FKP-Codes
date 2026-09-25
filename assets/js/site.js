@@ -67,7 +67,7 @@
               li({ en: "<b>Manager in the loop.</b> An optional market-context field lets the manager bring the macro reading, which the model uses without embellishing.", fr: "<b>Gérant dans la boucle.</b> Un champ « contexte de marché » permet au gérant d’apporter sa lecture macro, intégrée sans enrichissement inventé." }) +
               li({ en: "<b>Attribution, not description.</b> Line contributions and allocation gaps vs. the strategic allocation explain relative performance.", fr: "<b>Expliquer, pas décrire.</b> Contributions par ligne et écarts d’allocation vs l’allocation stratégique expliquent la performance relative." }) +
               li({ en: "<b>Tone control.</b> Institutional vs. private clients, three lengths, four fixed sections.", fr: "<b>Ton paramétrable.</b> Institutionnels ou clientèle privée, trois longueurs, quatre sections fixes." }) +
-              li({ en: "<b>Cost control.</b> Claude Haiku 4.5, a per-session generation cap on the public demo, bring-your-own-key option.", fr: "<b>Maîtrise des coûts.</b> Claude Haiku 4.5, plafond de générations par session sur la démo publique, possibilité d’utiliser sa propre clé." }) +
+              li({ en: "<b>Cost control.</b> Claude Haiku 4.5, a per-visitor generation cap and a monthly spend limit.", fr: "<b>Maîtrise des coûts.</b> Claude Haiku 4.5, plafond de générations par visiteur et limite de dépenses mensuelle." }) +
             "</ul></div>" +
           "</div>" +
           '<div class="ov-block"><h3>' + t(UI.impact) + '</h3><div class="table-wrap"><table class="compare"><thead><tr><th>' + t(UI.step) + "</th><th>" + t(UI.before) + "</th><th>" + t(UI.after) + "</th></tr></thead><tbody>" +
