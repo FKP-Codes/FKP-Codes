@@ -1,18 +1,18 @@
 <h1 align="center">Hi there 👋</h1>
-<h3 align="center">Financial Engineer | Building AI tools for Asset Management</h3>
+<h3 align="center">Financial Engineer | Building AI tools for Investment Management</h3>
 
 <p align="center"><a href="https://fkp-codes.github.io/FKP-Codes/"><b>🌐 Portfolio site: live demos, architecture and code</b></a></p>
 
 ---
 
-Financial engineer with **3 years in asset management**, I build tools that turn financial data and regulatory
+Financial engineer with **3 years in institutional investment consulting**, I build tools that turn financial data and regulatory
 documents into decisions and client-ready content. My focus: putting **LLMs into production workflows**
 (reporting, fund due diligence, market monitoring) with the controls that finance requires —
 traceable figures, human-in-the-loop review, and cost discipline.
 
-- 🏦 **Domain** — multi-asset portfolios, performance & risk analytics, client reporting, PRIIPs KID / UCITS documentation
+- 🏦 **Domain** — institutional investment consulting: multi-asset portfolios, performance & risk analytics, client reporting, PRIIPs KID / UCITS documentation
 - 🤖 **AI in production** — Claude API prototypes deployed internally, PowerApps front-ends, n8n automations
-- 🎯 **Looking for** — roles at the intersection of finance and AI (applied AI, quant tooling, AI product for AM)
+- 🎯 **Looking for** — roles at the intersection of finance and AI (applied AI, quant tooling, AI products for investment management)
 
 ## 🚀 Featured projects
 
@@ -45,4 +45,4 @@ French (native) · English (professional)
 
 ---
 
-<p align="center"><i>Open to conversations about AI for asset management — feel free to reach out.</i></p>
+<p align="center"><i>Open to conversations about AI for investment management — feel free to reach out.</i></p>
