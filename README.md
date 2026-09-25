@@ -7,13 +7,13 @@
 
 Financial engineer with **3 years in institutional investment consulting**, I build tools that turn financial data and regulatory
 documents into decisions and client-ready content. My focus: putting **LLMs into production workflows**
-(reporting, fund due diligence, market monitoring) with the controls that finance requires —
+(reporting, fund due diligence, market monitoring) with the controls that finance requires -
 traceable figures, human-in-the-loop review, and cost discipline.
 
-- 🏦 **Latest role** — institutional investment consulting: monitoring and reporting of multi-asset portfolios (100+ clients, €5.5bn in assets), client relationship management
-- ⚙️ **Built on the job** — automated extraction, processing and visualisation of financial data (Python, VBA, JUMP), a client reporting website and internal tools (billing, compliance)
-- 🤖 **Applied AI** — prototypes on the Claude API, MS Power Apps and n8n
-- 🎯 **Looking for** — roles at the intersection of finance and AI (applied AI, quant tooling, AI products for investment management)
+- 🏦 **Latest role** - institutional investment consulting: monitoring and reporting of multi-asset portfolios (100+ clients, €5.5bn in assets), client relationship management
+- ⚙️ **Built on the job** - automated extraction, processing and visualisation of financial data (Python, VBA, JUMP), a client reporting website and internal tools (billing, compliance)
+- 🤖 **Applied AI** - prototypes on the Claude API, MS Power Apps and n8n
+- 🎯 **Looking for** - roles at the intersection of finance and AI (applied AI, quant tooling, AI products for investment management)
 
 ## 🚀 Featured projects
 
@@ -35,8 +35,8 @@ traceable figures, human-in-the-loop review, and cost discipline.
 
 ## 🌐 Languages
 
-French (native) · English (professional)
+French - English (professional) - Turkish (native) - Spanish (B1)
 
 ---
 
-<p align="center"><i>Open to conversations about AI for investment management — feel free to reach out.</i></p>
+<p align="center"><i>Open to conversations about AI for investment management - feel free to reach out.</i></p>

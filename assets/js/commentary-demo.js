@@ -70,7 +70,7 @@
     stop: { en: "Stop", fr: "Arrêter" },
     download: { en: "Download .md", fr: "Télécharger .md" },
     placeholder: { en: "Set the scenario above, then generate: the commentary is written live from the current figures.", fr: "Réglez le scénario ci-dessus puis générez : le commentaire est rédigé en direct à partir des chiffres affichés." },
-    stale: { en: "The figures changed since this commentary was written — regenerate to update it.", fr: "Les chiffres ont changé depuis la rédaction de ce commentaire — régénérez pour le mettre à jour." },
+    stale: { en: "The figures changed since this commentary was written - regenerate to update it.", fr: "Les chiffres ont changé depuis la rédaction de ce commentaire - régénérez pour le mettre à jour." },
     remaining: { en: "generation(s) left this hour", fr: "génération(s) restante(s) cette heure-ci" },
     errRate: { en: "Demo limit reached for now (a few generations per hour per visitor). Please try again later.", fr: "Limite de la démo atteinte pour le moment (quelques générations par heure et par visiteur). Réessayez plus tard." },
     errDaily: { en: "The demo’s daily budget is used up. Please come back tomorrow.", fr: "Le budget quotidien de la démo est épuisé. Revenez demain." },
@@ -102,13 +102,13 @@
     return new Intl.NumberFormat(lang() === "fr" ? "fr-FR" : "en-GB", { minimumFractionDigits: digits, maximumFractionDigits: digits });
   }
   function pct(x, d, signed) {
-    if (!isFinite(x)) return "—";
+    if (!isFinite(x)) return "-";
     var s = nf(d == null ? 2 : d).format(x * 100);
     if (signed && x > 0) s = "+" + s;
     return s + (lang() === "fr" ? " %" : "%");
   }
   function num(x, d, signed) {
-    if (!isFinite(x)) return "—";
+    if (!isFinite(x)) return "-";
     var s = nf(d).format(x);
     return signed && x > 0 ? "+" + s : s;
   }
@@ -656,7 +656,7 @@
       });
       var dl = el("button", { type: "button", class: "copy-btn" }, esc(t(L.download)));
       dl.addEventListener("click", function () {
-        var md = "# " + t(L.ai) + " — " + refs.periodLabel.textContent + "\n\n" + ai.text + "\n\n_" + t(L.disclaimer) + "_\n";
+        var md = "# " + t(L.ai) + " - " + refs.periodLabel.textContent + "\n\n" + ai.text + "\n\n_" + t(L.disclaimer) + "_\n";
         var a = document.createElement("a");
         a.href = URL.createObjectURL(new Blob([md], { type: "text/markdown" }));
         a.download = "commentary_" + iso(state.result.dates[state.result.dates.length - 1]).replace(/-/g, "") + ".md";

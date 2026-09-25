@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260925-2">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260925-3">
   <script>
     // Theme and language before first paint (avoids a flash of the wrong theme).
     (function () {
@@ -36,7 +36,6 @@
       </a>
       <nav class="main-nav" aria-label="Main">
         <a href="#projects" data-i18n="nav.projects">Projects</a>
-        <a href="#approach" data-i18n="nav.approach">Approach</a>
         <a href="#skills" data-i18n="nav.skills">Skills</a>
         <a href="#about" data-i18n="nav.about">About</a>
       </nav>
@@ -61,7 +60,7 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Open to finance × AI roles</span></p>
           <h1 data-i18n-html="hero.title">Financial engineer building <em>AI tools</em> for investment management.</h1>
-          <p class="lead" data-i18n="hero.lead">Three years in institutional investment consulting, now turning financial data and regulatory documents into decisions and client-ready content — with the controls finance requires: traceable figures, human review and cost discipline.</p>
+          <p class="lead" data-i18n="hero.lead">Three years in institutional investment consulting, now turning financial data and regulatory documents into decisions and client-ready content - with the controls finance requires: traceable figures, human review and cost discipline.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#projects" data-i18n="hero.cta1">Explore the projects</a>
             <a class="btn btn-ghost" href="https://ai-portfolio-commentary.streamlit.app" target="_blank" rel="noopener"><span data-i18n="hero.cta2">Open the live app</span> <span aria-hidden="true">↗</span></a>
@@ -92,40 +91,8 @@
       </div>
     </section>
 
-    <!-- ================================================================ APPROACH -->
-    <section class="section section-alt" id="approach">
-      <div class="container">
-        <header class="section-head">
-          <p class="kicker" data-i18n="approach.kicker">How I build</p>
-          <h2 data-i18n="approach.title">LLMs in finance, with guardrails</h2>
-        </header>
-        <div class="principles">
-          <div class="principle">
-            <span class="principle-num">01</span>
-            <h3 data-i18n="p1.t">Figures are computed, never generated</h3>
-            <p data-i18n="p1.d">Numbers come from tested Python code. The model only receives a JSON payload of computed metrics and is instructed not to add any figure or event.</p>
-          </div>
-          <div class="principle">
-            <span class="principle-num">02</span>
-            <h3 data-i18n="p2.t">Human in the loop</h3>
-            <p data-i18n="p2.d">The tool writes a first draft; the portfolio manager adds market context and signs off. The payload sent to the model is shown for audit.</p>
-          </div>
-          <div class="principle">
-            <span class="principle-num">03</span>
-            <h3 data-i18n="p3.t">Cost discipline</h3>
-            <p data-i18n="p3.d">Right-sized models (Claude Haiku 4.5), per-session generation caps on public demos and a monthly spend limit on the API key.</p>
-          </div>
-          <div class="principle">
-            <span class="principle-num">04</span>
-            <h3 data-i18n="p4.t">Public data, reproducible</h3>
-            <p data-i18n="p4.d">Only public sources: Yahoo Finance, public RSS feeds, published regulatory documents. No confidential or proprietary data, ever.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ================================================================ SKILLS -->
-    <section class="section" id="skills">
+    <section class="section section-alt" id="skills">
       <div class="container">
         <header class="section-head">
           <p class="kicker" data-i18n="skills.kicker">Toolkit</p>
@@ -155,7 +122,7 @@
     </section>
 
     <!-- ================================================================ ABOUT -->
-    <section class="section section-alt" id="about">
+    <section class="section" id="about">
       <div class="container about-grid">
         <div>
           <p class="kicker" data-i18n="about.kicker">About</p>
@@ -168,13 +135,12 @@
             <li><span data-i18n-html="role.b3"><b>Development</b> of a client reporting website and internal tools (billing, compliance).</span></li>
             <li><span data-i18n-html="role.b4"><b>Client relationship</b> management, recurring and ad hoc.</span></li>
           </ul>
-          <p data-i18n="about.p2">I am now looking for roles at the intersection of finance and AI: applied AI, quant tooling, or AI products for investment management.</p>
         </div>
         <ul class="about-list">
           <li><span class="about-k" data-i18n="about.k1">Domain</span><span data-i18n="about.v1">Institutional investment consulting: multi-asset portfolio monitoring and client reporting</span></li>
           <li><span class="about-k" data-i18n="about.k2">AI in production</span><span data-i18n="about.v2">Claude API, MS Power Apps and n8n prototypes; Python / VBA / JUMP data automation</span></li>
           <li><span class="about-k" data-i18n="about.k3">Looking for</span><span data-i18n="about.v3">Applied AI · quant tooling · AI products for investment management</span></li>
-          <li><span class="about-k" data-i18n="about.k4">Languages</span><span data-i18n="about.v4">French (native) · English (professional)</span></li>
+          <li><span class="about-k" data-i18n="about.k4">Languages</span><span data-i18n="about.v4">French - English (professional) - Turkish (native) - Spanish (B1)</span></li>
         </ul>
       </div>
     </section>
@@ -187,8 +153,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/i18n.js?v=20260925-2"></script>
-  <script src="assets/js/commentary-demo.js?v=20260925-2"></script>
-  <script src="assets/js/site.js?v=20260925-2"></script>
+  <script src="assets/js/i18n.js?v=20260925-3"></script>
+  <script src="assets/js/commentary-demo.js?v=20260925-3"></script>
+  <script src="assets/js/site.js?v=20260925-3"></script>
 </body>
 </html>
