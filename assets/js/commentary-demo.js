@@ -76,7 +76,7 @@
     errDaily: { en: "The demo’s daily budget is used up. Please come back tomorrow.", fr: "Le budget quotidien de la démo est épuisé. Revenez demain." },
     errGeneric: { en: "The commentary service is unavailable right now. Please try again in a moment.", fr: "Le service de commentaire est indisponible pour le moment. Réessayez dans un instant." },
     errNetwork: { en: "service unreachable: network or CORS", fr: "service injoignable : réseau ou CORS" },
-    notConfigured: { en: "Live generation is being set up. Meanwhile, the commentary can be generated in the Streamlit app.", fr: "La génération en direct est en cours de mise en place. En attendant, le commentaire peut être généré dans l’app Streamlit." },
+    notConfigured: { en: "Live generation is temporarily unavailable.", fr: "La génération en direct est momentanément indisponible." },
     disclaimer: { en: "AI-generated draft for a fictitious portfolio · to be reviewed by a manager · not investment advice.", fr: "Premier jet généré par IA pour un portefeuille fictif · à relire par un gérant · pas un conseil en investissement." }
   };
 
@@ -684,8 +684,7 @@
       refs.genBtn.textContent = ai.busy ? t(L.stop) : ai.text ? t(L.regenerate) : t(L.generate);
       refs.genBtn.disabled = !opts.proxyUrl;
       if (!opts.proxyUrl) {
-        refs.aiOut.innerHTML = '<p class="ai-placeholder">' + esc(t(L.notConfigured)) + "</p>" +
-          (opts.appUrl ? '<p><a class="btn btn-ghost btn-sm" href="' + opts.appUrl + '" target="_blank" rel="noopener">Streamlit <span aria-hidden="true">↗</span></a></p>' : "");
+        refs.aiOut.innerHTML = '<p class="ai-placeholder">' + esc(t(L.notConfigured)) + "</p>";
         return;
       }
       refs.aiOut.innerHTML = ai.text

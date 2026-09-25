@@ -271,7 +271,6 @@ code, pre, .mono { font-family: var(--mono); }
 .panel-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
 .panel-title { font-size: clamp(22px, 2.6vw, 28px); font-weight: 700; letter-spacing: -.02em; }
 .panel-tagline { margin: 10px 0 0; color: var(--ink-2); font-size: 16.5px; max-width: 70ch; }
-.panel-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 
 .tabs { display: flex; gap: 2px; margin-top: 22px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
@@ -397,9 +396,6 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 24px; ma
 .copy-btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); border-radius: 8px; padding: 5px 9px; font: 600 12px/1 var(--font); cursor: pointer; }
 .copy-btn:hover { color: var(--ink); }
 
-.shot { border-radius: var(--radius-sm); border: 1px solid var(--line); overflow: hidden; background: var(--surface-2); }
-.shot img { width: 100%; height: auto; }
-.shot figcaption { padding: 10px 14px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); background: var(--surface); }
 
 
 /* Architecture */
@@ -427,14 +423,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); height: 24px; ma
 .tree i { color: var(--muted); font-style: normal; }
 
 /* Engineering */
-.eng-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
-.eng-card { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
-.eng-card h4 { font-size: 14.5px; margin-bottom: 6px; }
-.eng-card p { margin: 0; color: var(--ink-2); font-size: 13.5px; }
-.eng-card .mono { font-size: 12px; color: var(--accent-ink); }
 
-.stack { display: flex; flex-wrap: wrap; gap: 8px; }
-.stack span { padding: 6px 10px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13px; color: var(--ink-2); }
 
 .roadmap { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .roadmap li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding-bottom: 18px; position: relative; }

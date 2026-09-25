@@ -13,13 +13,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=20260925-5">
+  <link rel="stylesheet" href="assets/css/site.css?v=20260925-6">
   <script>
     // Theme and language before first paint (avoids a flash of the wrong theme).
     (function () {
       var theme = null, lang = null;
       try { theme = localStorage.getItem("theme"); lang = localStorage.getItem("lang"); } catch (e) {}
-      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.setAttribute("data-theme", theme === "light" ? "light" : "dark");
       if (!lang) lang = (navigator.language || "en").toLowerCase().indexOf("fr") === 0 ? "fr" : "en";
       document.documentElement.setAttribute("lang", lang);
     })();
@@ -63,7 +63,6 @@
           <p class="lead" data-i18n="hero.lead">Three years in institutional investment consulting, working both on client portfolios and on the tools that serve them: data automation, reporting and applied AI.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#projects" data-i18n="hero.cta1">Explore the projects</a>
-            <a class="btn btn-ghost" href="https://ai-portfolio-commentary.streamlit.app" target="_blank" rel="noopener"><span data-i18n="hero.cta2">Open the live app</span> <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <dl class="hero-stats">
@@ -81,7 +80,7 @@
         <header class="section-head">
           <p class="kicker" data-i18n="projects.kicker">Project workbench</p>
           <h2 data-i18n="projects.title">Pick a tool, see it run</h2>
-          <p class="section-lead" data-i18n="projects.lead">Each project comes with its business case, a live render, its architecture and its engineering standards.</p>
+          <p class="section-lead" data-i18n="projects.lead">Each project comes with its business case, a live render and its architecture.</p>
         </header>
 
         <div class="workbench">
@@ -153,8 +152,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/i18n.js?v=20260925-5"></script>
-  <script src="assets/js/commentary-demo.js?v=20260925-5"></script>
-  <script src="assets/js/site.js?v=20260925-5"></script>
+  <script src="assets/js/i18n.js?v=20260925-6"></script>
+  <script src="assets/js/commentary-demo.js?v=20260925-6"></script>
+  <script src="assets/js/site.js?v=20260925-6"></script>
 </body>
 </html>
