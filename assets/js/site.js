@@ -92,7 +92,7 @@
       },
       architecture: function () {
         return '<div class="stack-v">' +
-          '<div><div class="block-title"><h4>' + t(UI.flow) + '</h4></div><div class="flow" style="--cols:5">' +
+          '<div><div class="block-title"><h4>' + t(UI.flow) + '</h4></div><div class="flow">' +
             flow("01", { en: "Market data", fr: "Données de marché" }, { en: "Dividend-adjusted closes for 3 UCITS ETFs on Xetra (EUR). CSV snapshot fallback if Yahoo is unavailable.", fr: "Cours ajustés des dividendes de 3 ETF UCITS sur Xetra (EUR). Snapshot CSV de secours si Yahoo est indisponible." }, "src/data.py") +
             flow("02", { en: "Analytics", fr: "Analytics" }, { en: "Pure, tested functions: returns, volatility, drawdown, Sharpe, tracking error, contributions, weight drift.", fr: "Fonctions pures et testées : performance, volatilité, drawdown, Sharpe, tracking error, contributions, dérive des poids." }, "src/metrics.py") +
             flow("03", { en: "JSON payload", fr: "Payload JSON" }, { en: "Single source of truth sent to the model, displayed in the app for audit.", fr: "Source unique de vérité envoyée au modèle, affichée dans l’app pour audit." }, "build_context()", true) +
@@ -168,7 +168,7 @@
           }) + "</pre></div></div>";
       },
       architecture: function () {
-        return '<div class="flow" style="--cols:5">' +
+        return '<div class="flow">' +
           flow("01", { en: "Schedule", fr: "Planification" }, { en: "n8n cron trigger, every business day before the open.", fr: "Déclencheur n8n, chaque jour ouvré avant l’ouverture." }, "n8n · Cron") +
           flow("02", { en: "Collect", fr: "Collecte" }, { en: "Public RSS feeds from financial media and central banks.", fr: "Flux RSS publics de médias financiers et de banques centrales." }, "RSS Read") +
           flow("03", { en: "Clean & dedupe", fr: "Nettoyage" }, { en: "Normalise, drop duplicates and items already seen.", fr: "Normalisation, suppression des doublons et des articles déjà traités." }, "Function") +
@@ -229,7 +229,7 @@
           }) + "</pre></div></div>";
       },
       architecture: function () {
-        return '<div class="flow" style="--cols:5">' +
+        return '<div class="flow">' +
           flow("01", { en: "Upload", fr: "Dépôt" }, { en: "Public KID or annual report PDF.", fr: "PDF public : DIC ou rapport annuel." }, "Streamlit") +
           flow("02", { en: "Parse", fr: "Analyse" }, { en: "Text and tables extracted page by page.", fr: "Texte et tableaux extraits page par page." }, "PDF parsing") +
           flow("03", { en: "Extract", fr: "Extraction" }, { en: "Structured outputs against the fund schema, with page citations.", fr: "Sorties structurées selon le schéma fonds, avec citations de page." }, "Claude API", true) +
